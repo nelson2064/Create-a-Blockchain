@@ -28,4 +28,6 @@
                                 self.chain.append(block)                               #now we have block now we have to simply append to our chain so chain is a list so to append this block we use append
                                 return block                                            #retrun the block becuawse we gona display information of this block in postman an dby information means off course these four keys
                             
-                            
+                                 def get_previous_block(self):                                 #get the last block    
+                                return self.chain[-1]                                     # chain -1 is the last block of the chain 
+
