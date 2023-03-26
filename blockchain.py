@@ -76,3 +76,6 @@
 
                             # Creating a Web App
                         app = Flask(__name__)
+
+                        # Creating a Blockchain
+                        blockchain = Blockchain()
