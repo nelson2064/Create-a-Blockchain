@@ -50,3 +50,23 @@
                                 encoded_block = json.dumps(block, sort_keys = True).encode() # we are encoding our block in right format so it can be accepted by sha256 hash funtion first our block sort keys argumaent whcih will set equsl yo true so that our block dictionary is sorted by keys   #each block of blockhcian has dictionoary with four key but first thing we need to do exactly as do is make this deictionary a string we gona use json libary from this json libary we use dom function that exactly tyaksa an object and makes a string > why we take dom funciton from json libary not directly becuase in part two we will put our blocks dictionaries into a json file you know in the json format and therefore our blocks originally in a dictionary will have to json format and we tak dom from json to make our dictionary stirng 
                                 return hashlib.sha256(encoded_block).hexdigest()     #hexdigest is used to get in hexadecimal format now we have hash function that reutrns a cryptographic hash  of our block  
                             
+                            #is chain valid funciton that will chek our blockchain is valid 
+                            #first chek that the previous hash of each block is equal to the hash of its previous block 
+                            #second thing will chek is that the proof of each block is valid according to our proof or work problem that we defined in this proof_of_work fucntion 
+                            def is_chain_valid(self, chain):
+                                previous_block = chain[0]
+                                block_index = 1
+                                while block_index < len(chain):
+                                    block = chain[block_index]
+                                    if block['previous_hash'] != self.hash(previous_block): #is the current block previous hash is not equal to the previous block its hash then return false
+                                        return False
+                                    previous_proof = previous_block['proof']     #previous block proof
+                                    proof = block['proof']              #current block proof 
+                                    hash_operation = hashlib.sha256(str(proof**2 - previous_proof**2).encode()).hexdigest()           
+                                    if hash_operation[:4] != '0000':         #checking if the first 4 four index of hash operaiton is 0 if not then return false 
+                                        return False
+                                    previous_block = block   #    the current block will be the previous block when new block will came so new block will came if it pass all chek of is_chain_valid           
+                                    block_index += 1           #increment the block index 
+                                return True      #if everyhging gone well we return true 
+                            
+                            
