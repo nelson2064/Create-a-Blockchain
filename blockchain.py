@@ -73,3 +73,6 @@
 
 
                             # Part 2 - Mining our Blockchain
+
+                            # Creating a Web App
+                        app = Flask(__name__)
