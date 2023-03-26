@@ -111,3 +111,6 @@
                             else:
                                 response = {'message': 'Houston, we have a problem. The Blockchain is not valid.'}
                             return jsonify(response), 200
+
+                               # Running the app
+                        app.run(host = '0.0.0.0', port = 5000)
