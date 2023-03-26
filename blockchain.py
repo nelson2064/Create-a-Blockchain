@@ -70,3 +70,6 @@
                                 return True      #if everyhging gone well we return true 
                             
                             #congraturlation for  building arcitecture of our blockhain
+
+
+                            # Part 2 - Mining our Blockchain
